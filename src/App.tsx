@@ -3,7 +3,7 @@ import { useTasks } from "./useTasks";
 import { TaskList } from "./TaskList";
 import { ConfirmModal } from "./ConfirmModal";
 import { Filter } from "./types";
-import Calendar from "./Calendar"; // 🆕
+import Calendar from "./Calendar"; 
 
 export default function App() {
   const { tasks, reorderTasks, addTask, toggleTask, deleteTask } = useTasks();
@@ -13,7 +13,7 @@ export default function App() {
   const [modalVisible, setModalVisible] = useState(false);
   const [taskToDelete, setTaskToDelete] = useState<number | null>(null);
 
-  // 🆕 Нов state за календар задачи
+ 
   const [calendarTasks, setCalendarTasks] = useState<Record<string, string[]>>({});
   const [selectedDate, setSelectedDate] = useState<string | null>(null);
   const [calendarInput, setCalendarInput] = useState("");
@@ -103,12 +103,12 @@ export default function App() {
         />
       </div>
 
-      {/* 🆕 СЕКЦИЯ ЗА КАЛЕНДАР */}
+     
     <div className="calendar-section">
   <h2>📅 Daily Tasks</h2>
   <Calendar onSelectDate={(date) => setSelectedDate(date)} />
 
-  {/* Бутонът се вижда винаги */}
+ 
   <div style={{ display: "flex", gap: "14px", marginTop: "10px", justifyContent: "center"}}>
     <button onClick={() => setShowAllCalendarTasks((prev) => !prev)}>
       {showAllCalendarTasks ? "Hide All Daily Tasks" : "Show All Daily Tasks"}
@@ -153,7 +153,7 @@ export default function App() {
     borderRadius: "8px",
     textAlign: "center",
     color: "#4b0082",
-    fontSize: "1rem" // тъмнолилав текст
+    fontSize: "1rem" 
   }}>
               <strong>{date}:</strong>
               <ul>

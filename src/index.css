@@ -393,7 +393,7 @@ body::before {
   color: #4b0082;
   width: 90%;
   font-size: 1rem;
-  margin: 20px auto 0 auto; /* центриране + разстояние отгоре */
+  margin: 20px auto 0 auto;
 }
 
  

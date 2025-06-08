@@ -1,4 +1,4 @@
-// src/ConfirmModal.tsx
+
 import React from "react";
 
 type ConfirmModalProps = {

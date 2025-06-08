@@ -44,7 +44,7 @@ const Calendar: React.FC<Props> = ({ onSelectDate }) => {
     alignItems: "center",
     gap: "10px",
     marginBottom: "1.5rem",
-    fontSize: "1.2rem", // увеличава размера на текста (стрелките и заглавието)
+    fontSize: "1.2rem", 
   }}
 >
   <button

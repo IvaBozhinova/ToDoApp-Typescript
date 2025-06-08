@@ -58,7 +58,7 @@ return {
   reorderTasks,
   addTask,
   toggleTask,
-  deleteTask, // добавяме я тук
+  deleteTask,
   setFilter,
   filter,
 };

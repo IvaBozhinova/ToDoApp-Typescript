@@ -1,4 +1,4 @@
-// src/TaskList.tsx
+
 import { DragDropContext, Droppable, Draggable, DropResult } from "@hello-pangea/dnd";
 import { Task } from "./types";
 
@@ -43,7 +43,7 @@ export function TaskList({ tasks, onToggle, onReorder, onDelete }: TaskListProps
   className="delete-btn"
   onClick={(e) => {
     e.stopPropagation();
-    onDelete?.(task.id); // просто извиква onDelete
+    onDelete?.(task.id); 
   }}
 >
   🗑
