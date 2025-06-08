@@ -1,0 +1,405 @@
+/* src/index.css */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #1e1e2f, #2b2b45);
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+   position: relative;
+}
+
+.container {
+  background: rgba(30, 30, 50, 0.85);
+  padding: 1.5rem;
+  border-radius: 20px;
+  box-shadow: 0 0 20px #00f7ff, 0 0 60px #ff00c8;
+  max-width: 500px;
+  width: 90%;
+  backdrop-filter: blur(10px);
+  animation: fadeIn 1.2s ease-out;
+  margin-top: 3rem;
+}
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 0.8rem;
+   padding: 0.6rem 1.2rem;
+}
+
+.task-title {
+  flex: 0.4;
+  word-break: break-word;
+}
+
+.delete-btn {
+  background: transparent;
+  border: none;
+  font-size: 1.6rem;
+  cursor: pointer;
+  color: #e5dcdc;
+  transition: transform 0.2s ease;
+}
+
+.delete-btn:hover {
+  transform: scale(1.3);
+  color: #ff1a1a;
+}
+
+
+h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #00f7ff;
+  margin-bottom: 2rem;
+  text-shadow: 0 0 10px #00f7ff;
+}
+
+input[type="text"] {
+  width: 50%;
+  padding: 0.5rem 0.6rem;
+  border-radius: 9px;
+  border: none;
+  margin-bottom: 1rem;margin-top: 2rem;margin-right: 1.6rem;margin-left: 1rem;
+  font-size: 1rem;
+  background: #5c2a9d;
+  color: #fff;
+  box-shadow: 0 0 10px #a855f7, 0 0 20px #9333ea;
+  outline: none;
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+input[type="text"]::placeholder {
+  color: #ddd;
+}
+
+input[type="text"]:focus {
+  box-shadow: 0 0 15px #d946ef, 0 0 30px #c026d3;
+  transform: scale(1.02);
+}
+
+
+button {
+  padding: 0.6rem 1.8rem;
+  margin: 0.9rem;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(145deg, #ff00c8, #00f7ff);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 0 10px #00f7ff;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #ff00c8, 0 0 40px #00f7ff;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+li {
+  background: #29293d;
+  margin-bottom: 1.5rem;
+  padding:1rem;
+  border-left: 5px solid #ff00c8;
+  border-radius: 8px;
+  color: #fff;
+  position: relative;
+  transition: 0.3s ease-in-out;
+  animation: slideUp 0.5s ease forwards;
+}
+
+li:hover {
+  transform: translateX(5px);
+  background: #38385a;
+  box-shadow: 0 0 10px #ff00c8;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+li {
+  animation: taskFadeIn 0.4s ease-out;
+}
+
+@keyframes taskFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+button.active {
+  background: linear-gradient(45deg, #00c6ff, #0072ff);
+}
+button.completed {
+  background: linear-gradient(45deg, #43e97b, #38f9d7);
+}
+li {
+  cursor: grab;
+  user-select: none;
+}
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background: #1e1e2f;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 30px #ff00c8;
+  color: white;
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+}
+
+.modal-buttons {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.modal-buttons button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  background: #ff4d4d;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.modal-buttons button:hover {
+  background: #ff1a1a;
+}
+.page-wrapper {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+   flex-direction: column;
+}
+.floating-text {
+  position: absolute;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #00f7ff;
+  opacity: 0.7;
+  text-shadow: 0 0 10px #00f7ff;
+  animation: float 5s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 999;
+}
+
+/* Позиции */
+.top-left {
+  top: 20px;
+  left: 650px; /* по-близо до лявата част на екрана */
+  white-space: nowrap; /* 🆕 това държи текста на един ред */
+}
+
+
+.top-right {
+  top: 60px;
+  right: 630px;white-space: nowrap; 
+}
+
+.bottom-right {
+  bottom: 70px;
+  right: 650px; /* по-близо до лявата част на екрана */
+  white-space: nowrap; 
+}
+
+/* Анимация */
+@keyframes float {
+  0%   { transform: translateY(0); opacity: 0.7; }
+  50%  { transform: translateY(-10px); opacity: 1; }
+  100% { transform: translateY(0); opacity: 0.7; }
+}
+
+.stats-box-vertical {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 1.5rem 0;
+  padding: 1rem 1.5rem;
+  background: rgba(0, 255, 255, 0.07);
+  border-radius: 16px;
+  border-left: 4px solid #00f7ff;
+  box-shadow: 0 0 10px #00f7ff88;
+  color: #fff;
+  text-shadow: 0 0 5px #00f7ff;
+  gap: 0.5rem;
+  animation: glowIn 2s ease-out;
+  max-width: 250px;
+}
+
+@keyframes glowIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.stats-box-vertical p {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(#00f7ff 1px, transparent 1px);
+  background-size: 30px 30px;
+  opacity: 0.1;
+  animation: twinkle 10s linear infinite;
+  z-index: 0;
+}
+
+@keyframes twinkle {
+  0% { background-position: 0 0; }
+  100% { background-position: 100px 100px; }
+}
+.calendar-section {
+  margin-top: 5rem;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 0 10px #00f7ff;
+    margin-bottom: 3rem;
+}
+.calendar-section h2{
+    text-align: center;
+  font-size: 1.5rem;
+  color: #00f7ff;
+  margin-bottom: 2rem;
+  text-shadow: 0 0 10px #00f7ff;
+}
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.6rem;
+  margin: 1rem 0;
+}
+
+.calendar-day {
+  background: #29293d;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 12px;
+  cursor: pointer;
+  color: white;
+  transition: 0.3s ease;
+}
+
+.calendar-day:hover {
+  background: #3f3f5a;
+  box-shadow: 0 0 10px #ff00c8;
+}
+
+.calendar-day.today {
+  border: 2px solid #00f7ff;
+}
+
+.calendar-task-box {
+  margin-top: 1rem;
+}
+.calendar-task-box h3 {
+  margin-top: 1rem;
+
+  padding: 0.5rem;
+  text-align: center;
+}
+.calendar-task-box input {
+  width: 90%;
+  padding: 0.6rem;
+  margin: 0.5rem 0;
+  border-radius: 8px;
+  border: none;
+}
+
+.calendar-task-box ul {
+  margin-top: 0.5rem;
+  padding-left: 1rem;
+}
+
+.calendar-task-box li {
+  background: #222;
+  margin-bottom: 0.5rem;
+  padding: 0.8rem;
+  border-radius: 8px;
+}
+.all-calendar-tasks {
+   padding: "4px";
+  background-color: #e6ccff;
+  padding:0.5px;
+  border-radius: 8px;
+  text-align: center;
+  color: #4b0082;
+  width: 90%;
+  font-size: 1rem;
+  margin: 20px auto 0 auto; /* центриране + разстояние отгоре */
+}
+
+ 
+
+
+.all-calendar-tasks ul {
+   padding: "5px",
+
+}
