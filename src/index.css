@@ -353,7 +353,7 @@ body::before {
 }
 
 .calendar-day.today {
-  border: 2px solid #00f7ff;
+  border: 2px solid #9bea0a;
 }
 
 .calendar-task-box {

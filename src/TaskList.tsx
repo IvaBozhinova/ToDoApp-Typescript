@@ -1,6 +1,6 @@
-
 import { DragDropContext, Droppable, Draggable, DropResult } from "@hello-pangea/dnd";
 import { Task } from "./types";
+import { TaskItem } from "./TaskItem"; // 👉 внасяме TaskItem
 
 interface TaskListProps {
   tasks: Task[];
@@ -28,30 +28,17 @@ export function TaskList({ tasks, onToggle, onReorder, onDelete }: TaskListProps
             {tasks.map((task, index) => (
               <Draggable key={task.id.toString()} draggableId={task.id.toString()} index={index}>
                 {(provided) => (
-                  <li
+                  <div
                     ref={provided.innerRef}
-                      {...provided.draggableProps}
-                      {...provided.dragHandleProps}
-                      onClick={() => onToggle(task.id)}
-                      className="task-item"
-                    >
-                      <span className="task-title">
-                        {task.status === "completed" ? "✅" : "🎯"} {task.title}
-                      </span>
-                      {onDelete && (
-                    <button
-  className="delete-btn"
-  onClick={(e) => {
-    e.stopPropagation();
-    onDelete?.(task.id); 
-  }}
->
-  🗑
-</button>
-
-                      )}
-                    </li>
-
+                    {...provided.draggableProps}
+                    {...provided.dragHandleProps}
+                  >
+                    <TaskItem
+                      task={task}
+                      onToggle={onToggle}
+                      onDelete={onDelete}
+                    />
+                  </div>
                 )}
               </Draggable>
             ))}

@@ -1,4 +1,4 @@
-import { useState } from "react";
+ import { useState } from "react"; 
 import { useTasks } from "./useTasks";
 import { TaskList } from "./TaskList";
 import { ConfirmModal } from "./ConfirmModal";
@@ -105,11 +105,11 @@ export default function App() {
 
      
     <div className="calendar-section">
-  <h2>📅 Daily Tasks</h2>
-  <Calendar onSelectDate={(date) => setSelectedDate(date)} />
+      <h2>📅 Daily Tasks</h2>
+      <Calendar onSelectDate={(date) => setSelectedDate(date)} />
 
  
-  <div style={{ display: "flex", gap: "14px", marginTop: "10px", justifyContent: "center"}}>
+   <div style={{ display: "flex", gap: "14px", marginTop: "10px", justifyContent: "center"}}>
     <button onClick={() => setShowAllCalendarTasks((prev) => !prev)}>
       {showAllCalendarTasks ? "Hide All Daily Tasks" : "Show All Daily Tasks"}
     </button>
@@ -120,7 +120,7 @@ export default function App() {
       <h3>Tasks for {selectedDate}</h3>
       <input
         type="text"
-        placeholder="Add today's task"
+        placeholder="Add your task"
         value={calendarInput}
         onChange={(e) => setCalendarInput(e.target.value)}
       />

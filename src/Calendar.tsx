@@ -66,7 +66,7 @@ const Calendar: React.FC<Props> = ({ onSelectDate }) => {
 </div>
 
 
-      {/* 📅 Дни */}
+    
       <div className="calendar-grid">
         {Array.from({ length: daysInMonth }, (_, i) => {
           const day = i + 1;
